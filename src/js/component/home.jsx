@@ -19,15 +19,30 @@ const Home = () => {
             value={inputValue}
             onKeyPress={(e) => {
               if (e.key === "Enter") {
-              setTodos(todos.concat(inputValue));
+              setTodos(todos.concat([inputValue]));
               }
             }            
           }
               placeholder="What needs to be done?"></input>
         </li>
-      </ul>
-    </div>
-  );
-};
+        {todos.map((item, index) => (
+          <li>
+            {item}{""}
+          <i 
+              className="fas fa-times float-end my-1"
+              onClick={() => 
+                 setTodos(
+                     todos.filter(
+                        (t, currentIndex) =>
+                            index != currentIndex
+            )
+            )
+          }></i>
+      </li>         
+        ))}
+        <div className ="left mx"> {todos.length} Item left </div>
+  </ul>
+  </div>
+  )};
 
 export default Home;
