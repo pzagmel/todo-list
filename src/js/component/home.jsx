@@ -30,7 +30,7 @@ const Home = () => {
           <li>
             {item}
           <i 
-              className="fas fa-times float-end my-1"
+              className="fas fa-times float-end my-1 mx-1"
               onClick={() => 
                  setTodos(
                      todos.filter(
