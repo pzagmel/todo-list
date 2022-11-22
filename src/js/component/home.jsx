@@ -19,7 +19,8 @@ const Home = () => {
             value={inputValue}
             onKeyPress={(e) => {
               if (e.key === "Enter") {
-              setTodos(todos.concat([inputValue]));
+              setTodos(todos.concat((inputValue)));
+              setInputValue("");
               }
             }            
           }
@@ -27,7 +28,7 @@ const Home = () => {
         </li>
         {todos.map((item, index) => (
           <li>
-            {item}{""}
+            {item}
           <i 
               className="fas fa-times float-end my-1"
               onClick={() => 
